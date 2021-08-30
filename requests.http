@@ -1,0 +1,23 @@
+# GET http://localhost:3000/products
+
+# GET http://localhost:3000/products/3
+
+# POST http://localhost:3000/products
+# Content-Type: application/json 
+
+# {
+#   "name": "orchid",
+#   "price": 20,
+#   "image_url": "",
+#   "description": "Pretty plant."
+# }
+
+# PATCH http://localhost:3000/products/3
+# Content-Type: application/json 
+
+# {
+#   "image_url": "https://m.media-amazon.com/images/I/51T-pjqiKRL._AC_SX466_.jpg"
+# }
+
+DELETE http://localhost:3000/products/6
+

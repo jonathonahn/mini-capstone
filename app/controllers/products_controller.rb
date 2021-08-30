@@ -1,18 +1,43 @@
 class ProductsController < ApplicationController
 
-  def all_products
-    product = Product.all
-    render json: product.as_json
+  def index
+    products = Product.all
+    render json: products
   end
 
-  def first_product
-    product = Product.first
-    render json: product.as_json
+  def create
+    product = Product.new(
+      name: "#{params[:name]}",
+      price: params[:price],
+      image_url: "#{params[:image_url]}",
+      description: "#{params[:description]}"
+    )
+    # product = Product.new(name: "cactus", price: 5, description: "Prickly plant.")
+    product.save
+    render json: product
   end
 
-  def find_item
-    product = Product.find_by(name: params[:name]) #also works as params[:name]
-    render json: product.as_json
+  def show
+    product = Product.find(params[:id]) 
+    render json: product
+  end
+
+  def update
+    product = Product.find(params[:id]) 
+    product.name = params[:name] || product.name
+    product.price = params[:price] || product.price
+    product.image_url = params[:image_url] || product.image_url
+    product.description = params[:description] || product.description
+    product.save
+    render json: product
+  end
+  
+  def destroy
+    product = Product.find(params[:id]) 
+    product.destroy
+    render json: {
+      message: "destruction complete."
+    }
   end
 
 end
