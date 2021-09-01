@@ -7,9 +7,8 @@ class SuppliersController < ApplicationController
   def create
     supplier = Supplier.new(
       name: "#{params[:name]}",
-      price: params[:price],
-      image_url: "#{params[:image_url]}",
-      description: "#{params[:description]}"
+      email: params[:email],
+      phone_number: "#{params[:phone_number]}"
     )
     supplier.save
     render json: supplier

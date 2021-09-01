@@ -2,22 +2,21 @@
 
 # GET http://localhost:3000/products/3
 
-# POST http://localhost:3000/products
+# POST http://localhost:3000/suppliers
 # Content-Type: application/json 
 
 # {
-#   "name": "orchid",
-#   "price": 20,
-#   "image_url": "",
-#   "description": "Pretty plant."
+#   "name": "Evergreen Nursery",
+#   "email": "support@evergreennursery.com",
+#   "phone_number": "714-537-8877"
 # }
 
-# PATCH http://localhost:3000/products/3
-# Content-Type: application/json 
+PATCH http://localhost:3000/products/1
+Content-Type: application/json 
 
-# {
-#   "image_url": "https://m.media-amazon.com/images/I/51T-pjqiKRL._AC_SX466_.jpg"
-# }
+{
+  "supplier_id": 4
+}
 
-DELETE http://localhost:3000/products/6
+# DELETE http://localhost:3000/suppliers/1
 
