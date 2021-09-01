@@ -1,12 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Supplier.create!([
+ {name: "Plants Inc.", email: "plantsinc@plants.com", phone_number: "1-800-PLNT"},
+ {name: "1-800-FLOWERS", email: "support@1800flowers.com", phone_number: "1-800-416-4710"} 
+])
 
-product = Product.new(name: "Succulent", price: 5, description: "Easy to care for.")
-product.save
-
-# product = Product.new(name: "Philodendron", price: 10, description: "Vining plant.")
+# Product.create!([
+#   {name: "Succulent", price: "5.0", image_url: "https://redsquareflowers.com/wp-content/uploads/2020/12/Succulents-Madison-WI.jpg", description: "Easy to care for.", inventory_count: 1},
+#   {name: "Orchid", price: "15.0", image_url: "https://bagoys.imgix.net/images/itemVariation/Screen-Shot-2013-04-09-at-41516-PM-18092864422.png?auto=format&w=375&h=450&fit=crop", description: "Pretty plant.", inventory_count: 2}
+# ])
