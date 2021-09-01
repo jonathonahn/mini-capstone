@@ -1,4 +1,10 @@
 class Product < ApplicationRecord
+  belongs_to :supplier
+
+  # def supplier
+  #   Supplier.find(supplier_id)
+  # end
+  
   def is_discounted?
     price < 10
   end
