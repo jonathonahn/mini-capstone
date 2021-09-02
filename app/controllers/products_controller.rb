@@ -10,9 +10,9 @@ class ProductsController < ApplicationController
       name: "#{params[:name]}",
       price: params[:price],
       image_url: "#{params[:image_url]}",
-      description: "#{params[:description]}"
+      description: "#{params[:description]}",
+      supplier_id: "#{params[:supplier_id]}"
     )
-    # product = Product.new(name: "cactus", price: 5, description: "Prickly plant.")
     product.save
     render json: product
   end
