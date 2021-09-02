@@ -1,15 +1,19 @@
-# GET http://localhost:3000/products
+###
+GET http://localhost:3000/products
 
-# GET http://localhost:3000/products/3
+###
 
-# POST http://localhost:3000/suppliers
-# Content-Type: application/json 
+GET http://localhost:3000/products/3
 
-# {
-#   "name": "Evergreen Nursery",
-#   "email": "support@evergreennursery.com",
-#   "phone_number": "714-537-8877"
-# }
+###
+
+POST http://localhost:3000/images
+Content-Type: application/json 
+
+{
+  "url": "asdfasdfasdf",
+  "product_id": 2
+}
 
 PATCH http://localhost:3000/products/1
 Content-Type: application/json 
@@ -18,5 +22,5 @@ Content-Type: application/json
   "supplier_id": 4
 }
 
-# DELETE http://localhost:3000/suppliers/1
+DELETE http://localhost:3000/suppliers/1
 

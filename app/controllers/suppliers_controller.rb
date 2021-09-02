@@ -7,7 +7,7 @@ class SuppliersController < ApplicationController
   def create
     supplier = Supplier.new(
       name: "#{params[:name]}",
-      email: params[:email],
+      email: "#{params[:email]}",
       phone_number: "#{params[:phone_number]}"
     )
     supplier.save
