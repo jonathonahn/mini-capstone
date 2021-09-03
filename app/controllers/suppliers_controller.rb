@@ -10,8 +10,11 @@ class SuppliersController < ApplicationController
       email: "#{params[:email]}",
       phone_number: "#{params[:phone_number]}"
     )
-    supplier.save
-    render json: supplier
+    if supplier.save 
+      render json: supplier
+    else
+      render json: supplier.errors.full_messages
+    end
   end
 
   def show
@@ -24,8 +27,11 @@ class SuppliersController < ApplicationController
     supplier.name = params[:name] || supplier.name
     supplier.email = params[:email] || supplier.email
     supplier.phone_number = params[:phone_number] || supplier.phone_number
-    supplier.save
-    render json: supplier
+    if supplier.save 
+      render json: supplier
+    else
+      render json: supplier.errors.full_messages
+    end
   end
   
   def destroy

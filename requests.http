@@ -11,9 +11,11 @@ POST http://localhost:3000/images
 Content-Type: application/json 
 
 {
-  "url": "asdfasdfasdf",
-  "product_id": 2
+  "url": "",
+  "product_id": 
 }
+
+###
 
 PATCH http://localhost:3000/products/1
 Content-Type: application/json 
@@ -21,6 +23,8 @@ Content-Type: application/json
 {
   "supplier_id": 4
 }
+
+###
 
 DELETE http://localhost:3000/suppliers/1
 

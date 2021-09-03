@@ -9,8 +9,11 @@ class ImagesController < ApplicationController
       url: "#{params[:url]}",
       product_id: params[:product_id]
     )
-    image.save
-    render json: image
+    if image.save 
+      render json: image
+    else
+      render json: image.errors.full_messages
+    end
   end
 
   def show
@@ -22,8 +25,11 @@ class ImagesController < ApplicationController
     image = Image.find(params[:id]) 
     image.url = params[:url] || image.url
     image.product_id = params[:product_id] || image.product_id
-    image.save
-    render json: image
+    if image.save 
+      render json: image
+    else
+      render json: image.errors.full_messages
+    end
   end
   
   def destroy
