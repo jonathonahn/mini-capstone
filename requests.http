@@ -1,9 +1,10 @@
 ###
 GET http://localhost:3000/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzEzMDE4NzN9.06EXGEqzvxjFLwMr5BvfWJHJPVrEX02wyHqjxH9OENI
 
 ###
 
-GET http://localhost:3000/products/3
+GET http://localhost:3000/products/4
 
 ###
 
@@ -45,6 +46,6 @@ POST http://localhost:3000/sessions
 Content-Type: application/json 
 
 {
-  "email": "jonathonahn@gmail.com",
+  "email": "randy@gmail.com",
   "password": "password"
 }
