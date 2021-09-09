@@ -28,3 +28,15 @@ Content-Type: application/json
 
 DELETE http://localhost:3000/suppliers/1
 
+### users create signup 
+
+POST http://localhost:3000/users 
+Content-Type: application/json 
+
+{
+  "name": "jonathon ahn",
+  "email": "jonathonahn@gmail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
