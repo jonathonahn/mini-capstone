@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
   def index
-    orders = Order.where(user_id: current_user.id)
-    render json: orders
+    if current_user
+      orders = Order.where(user_id: current_user.id)
+      render json: orders
+    else  
+      orders = Order.all 
+      render json: orders 
+    end
   end
 
   def create
@@ -20,10 +25,14 @@ class OrdersController < ApplicationController
 
   def show
     order = Order.find(params[:id])
-    if current_user.id == order.user_id 
-      render json: order
+    if current_user
+      if current_user.id != order.user_id 
+        render json: {message: "this is not your order"}
+      else 
+        render json: order 
+      end
     else 
-      render json: {message: "this is not your order"}
+      render json: order
     end
   end
 end
