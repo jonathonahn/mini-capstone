@@ -15,9 +15,8 @@ class OrdersController < ApplicationController
       product_id: params[:product_id],
       quantity: params[:quantity]
     )
-    product = Product.find(params[:product_id])
-    order.subtotal = product.price * order.quantity
-    order.tax = product.tax * order.quantity
+    order.subtotal = order.product.price * order.quantity
+    order.tax = order.product.tax * order.quantity
     order.total = order.subtotal + order.tax
     order.save 
     render json: order
