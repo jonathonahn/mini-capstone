@@ -1,37 +1,48 @@
-###
-GET http://localhost:3000/products
+@hostname = http://localhost:3000
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzE2NDAxNTZ9.abI-YfpP8E1QcZ2czsolOW77x-QhH2nMCFYqyW4O1Ts 
+
+# @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NDA1Mjl9.XDDO47TGrdS_q7uq0ai6f-ZbUHbBcc9mJSPVen3A2Ag randy, non admin
+
+### product index
+GET {{hostname}}/products
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzEzMDE4NzN9.06EXGEqzvxjFLwMr5BvfWJHJPVrEX02wyHqjxH9OENI
 
-###
+### show product
 
-GET http://localhost:3000/products/4
+GET {{hostname}}/products/4
 
-###
+### create product
 
-POST http://localhost:3000/images
-Content-Type: application/json 
-
-{
-  "url": "",
-  "product_id": 
-}
-
-###
-
-PATCH http://localhost:3000/products/1
-Content-Type: application/json 
+POST {{hostname}}/products
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
-  "supplier_id": 4
+  "name": "Bonsai Tree",
+  "price": 90,
+  "description": "Meticulous plant.",
+  "supplier_id": 4,
+  "inventory_count": 1
 }
 
-###
+### update product
 
-DELETE http://localhost:3000/suppliers/1
+PATCH {{hostname}}/products/6
+Content-Type: application/json 
+Authorization: Bearer {{jwt}}
+
+{
+  "inventory_count": 2
+}
+
+### DELETE product
+
+DELETE {{hostname}}/products/1
+Authorization: Bearer {{jwt}}
 
 ### users create signup 
 
-POST http://localhost:3000/users 
+POST {{hostname}}/users 
 Content-Type: application/json 
 
 {
@@ -42,19 +53,19 @@ Content-Type: application/json
 }
 
 ### sessions create (login)
-POST http://localhost:3000/sessions 
+POST {{hostname}}/sessions 
 Content-Type: application/json 
 
 {
-  "email": "jonathonahn@gmail.com",
+  "email": "randy@gmail.com",
   "password": "password"
 }
 
 ### orders create 
 
-POST http://localhost:3000/orders
+POST {{hostname}}/orders
 Content-Type: application/json 
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzEzODY5ODJ9.PGd5kfumbsK1qqIyoX6jGiSuHMoDrp8vKZ6U0DZkXCs
+Authorization: Bearer {{jwt}}
 
 {
   "product_id": 2,
@@ -62,9 +73,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzEzODY5O
 }
 
 ### orders show 
-GET http://localhost:3000/orders/6
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzEzODgxMTR9.JL6elEeYqy0MqFPEHHitEkr3b3qHejms8or6j1iawi4
+GET {{hostname}}/orders/6
+Authorization: Bearer {{jwt}}
 
 ### orders index
-GET http://localhost:3000/orders/
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzEzODgxMTR9.JL6elEeYqy0MqFPEHHitEkr3b3qHejms8or6j1iawi4
+GET {{hostname}}/orders/
+Authorization: Bearer {{jwt}}

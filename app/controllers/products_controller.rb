@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
 
   def index
     products = Product.all 
@@ -10,7 +11,8 @@ class ProductsController < ApplicationController
       name: "#{params[:name]}",
       price: params[:price],
       description: "#{params[:description]}",
-      supplier_id: params[:supplier_id]
+      supplier_id: params[:supplier_id],
+      inventory_count: params[:inventory_count]
     )
     if product.save 
       render json: product
@@ -30,6 +32,7 @@ class ProductsController < ApplicationController
     product.price = params[:price] || product.price
     product.description = params[:description] || product.description
     product.supplier_id = params[:supplier_id] || product.supplier_id
+    params[:inventory_count] || product.inventory_count
     if product.save 
       render json: product
     else
