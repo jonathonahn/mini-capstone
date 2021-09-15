@@ -4,7 +4,7 @@
 # @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NDA1Mjl9.XDDO47TGrdS_q7uq0ai6f-ZbUHbBcc9mJSPVen3A2Ag randy, non admin
 
 ### product index
-GET {{hostname}}/products
+GET {{hostname}}/products?category=Flower
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzEzMDE4NzN9.06EXGEqzvxjFLwMr5BvfWJHJPVrEX02wyHqjxH9OENI
 
 ### show product
