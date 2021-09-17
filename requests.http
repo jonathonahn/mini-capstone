@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzE4MTk4OTN9.7p6hdxhY9gI2yrgddpqzfHN3g0KZG0G25OnRQVjCpEA
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzE5ODY5NzV9.8uNN3TFXRY1WLh0HGgfHtErJGKVp4soH8URlQO4NKyY
 
 # @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NDA1Mjl9.XDDO47TGrdS_q7uq0ai6f-ZbUHbBcc9mJSPVen3A2Ag randy, non admin
 
@@ -67,10 +67,6 @@ POST {{hostname}}/orders
 Content-Type: application/json 
 Authorization: Bearer {{jwt}}
 
-{
-  "product_id": 2,
-  "quantity": 5
-}
 
 ### orders show 
 GET {{hostname}}/orders/6
@@ -98,12 +94,9 @@ Authorization: Bearer {{jwt}}
 
 ### cart update 
 
-PATCH {{hostname}}/cart/5
+PATCH {{hostname}}/cart/1
 Content-Type: application/json 
 Authorization: Bearer {{jwt}}
 
-{
-  "product_id": 2,
-  "quantity": 7
-}
+
 

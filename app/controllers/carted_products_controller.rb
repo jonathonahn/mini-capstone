@@ -7,25 +7,25 @@ class CartedProductsController < ApplicationController
   end
 
   def create
-    cartedproduct = CartedProduct.new(
+    carted_product = CartedProduct.new(
       user_id: current_user.id,
       product_id: params[:product_id],
-      order_id: nil,
+      order_id: params[:order_id],
       quantity: params[:quantity],
       status: "carted"
     )
-    if cartedproduct.save 
-      render json: cartedproduct
+    if carted_product.save 
+      render json: carted_product
     else  
-      render json: cartedproduct.errors.full_messages
+      render json: {errors: carted_product.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
   def update
-    cartedproduct = CartedProduct.find_by(params[:id])
-    cartedproduct.product_id = params[:product_id] || cartedproduct.product_id 
-    cartedproduct.quantity = params[:quantity] || cartedproduct.quantity
-    cartedproduct.order_id = params[:order_id] || cartedproduct.order_id
+    carted_product = CartedProduct.find(params[:id])
+    carted_product.status = "removed"
+    carted_product.save
+    render json: {message: "Carted product DESTROYED (removed from cart)"}
   end
 
 
